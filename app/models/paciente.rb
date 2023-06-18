@@ -1,5 +1,8 @@
 class Paciente < ApplicationRecord
   has_one :endereco, dependent: :destroy, inverse_of: :paciente
+  has_many :consultas
+  has_many :medicos, through: :consultas
+
   validates :nome,
             presence: true,
             length: {
@@ -26,7 +29,7 @@ class Paciente < ApplicationRecord
   validates :nascimento,
             presence: true,
             comparison: {
-              less_than_or_equal_to: Date.today,
+              less_than_or_equal_to: Time.now(in: '-0300').to_date,
               greater_than: Date.new(1850)
             }
   validates_presence_of :endereco

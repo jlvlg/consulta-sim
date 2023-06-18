@@ -9,8 +9,11 @@ class Endereco < ApplicationRecord
               with: /\A\d+\z/
             }
   validates_each :cidade, :bairro, :logradouro, :complemento do |record, attr, value|
-    record.errors.add(attr, 'é obrigatório') if value.nil? || value.strip.empty?
-    record.errors.add(attr, 'deve ter no mínimo 2 caracteres') if value.nil? || value.length < 2
-    record.errors.add(attr, 'formato inválido') if value.nil? || (value =~ /\A\w+\z/).nil?
+    if value.nil? || value.split.empty?
+      record.errors.add(attr, 'é obrigatório')
+    else
+      record.errors.add(attr, 'deve ter no mínimo 2 caracteres') if value.length < 2
+      record.errors.add(attr, 'deve ter no máximo 200 caracteres') if value.length > 200
+    end
   end
 end
