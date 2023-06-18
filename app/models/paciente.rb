@@ -1,4 +1,5 @@
 class Paciente < ApplicationRecord
+  has_one :endereco, dependent: :destroy, inverse_of: :paciente
   validates :nome,
             presence: true,
             length: {
@@ -28,4 +29,6 @@ class Paciente < ApplicationRecord
               less_than_or_equal_to: Date.today,
               greater_than: Date.new(1850)
             }
+  validates_presence_of :endereco
+  validates_associated :endereco
 end

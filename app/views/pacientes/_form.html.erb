@@ -1,15 +1,17 @@
 <%= form_with(model: paciente) do |form| %>
-  <% if paciente.errors.any? %>
+  <% if paciente.errors.any? || !paciente.endereco.nil? && paciente.endereco.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(paciente.errors.count, "error") %> prohibited this paciente from being saved:</h2>
-
       <ul>
         <% paciente.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+        <% paciente.endereco.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
+
 
   <div>
     <%= form.label :nome, style: "display: block" %>
@@ -30,6 +32,33 @@
     <%= form.label :nascimento, style: "display: block" %>
     <%= form.date_field :nascimento %>
   </div>
+
+  <%= fields_for(:endereco, paciente.endereco) do |f| %>
+    <div>
+      <%= f.label :cep, style: "display: block" %>
+      <%= f.text_field :cep %>
+    </div>
+
+    <div>
+      <%= f.label :cidade, style: "display: block" %>
+      <%= f.text_field :cidade %>
+    </div>
+
+    <div>
+      <%= f.label :bairro, style: "display: block" %>
+      <%= f.text_field :bairro %>
+    </div>
+
+    <div>
+      <%= f.label :logradouro, style: "display: block" %>
+      <%= f.text_field :logradouro %>
+    </div>
+
+    <div>
+      <%= f.label :complemento, style: "display: block" %>
+      <%= f.text_field :complemento %>
+    </div>
+  <% end %>
 
   <div>
     <%= form.submit %>
