@@ -13,15 +13,18 @@ class ConsultasController < ApplicationController
   # GET /consultas/new
   def new
     @consulta = Consulta.new
+    @paciente = params[:paciente_id]
   end
 
   # GET /consultas/1/edit
   def edit
+    @paciente = set_consulta.paciente.id
   end
 
   # POST /consultas or /consultas.json
   def create
     @consulta = Consulta.new(consulta_params)
+    @paciente = consulta_params[:paciente_id]
 
     respond_to do |format|
       if @consulta.save
@@ -36,6 +39,7 @@ class ConsultasController < ApplicationController
 
   # PATCH/PUT /consultas/1 or /consultas/1.json
   def update
+    @paciente = consulta_params[:paciente_id]
     respond_to do |format|
       if @consulta.update(consulta_params)
         format.html { redirect_to consulta_url(@consulta), notice: "Consulta was successfully updated." }

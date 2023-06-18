@@ -2,6 +2,17 @@
 
 <%= render @paciente %>
 
+
+<div>
+  <h2>Consultas:</h2>
+  <% @paciente.consultas.each do |consulta| %>
+    <p><%= consulta.data %></p>
+    <p><%= consulta.medico.nome %></p>
+    <%= link_to "Editar consulta", edit_consulta_path(consulta) %>
+  <% end %>
+  <p><%= link_to "Marcar nova consulta", new_consulta_path(paciente_id: @paciente) %></p>
+</div>
+
 <div>
   <%= link_to "Edit this paciente", edit_paciente_path(@paciente) %> |
   <%= link_to "Back to pacientes", pacientes_path %>

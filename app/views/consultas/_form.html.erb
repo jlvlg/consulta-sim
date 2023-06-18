@@ -16,14 +16,11 @@
     <%= form.datetime_field :data %>
   </div>
 
-  <div>
-    <%= form.label :paciente_id, style: "display: block" %>
-    <%= form.text_field :paciente_id %>
-  </div>
+  <%= form.hidden_field :paciente_id, value: @paciente %>
 
   <div>
-    <%= form.label :medico_id, style: "display: block" %>
-    <%= form.text_field :medico_id %>
+    <%= form.label :medico_id, style: "display: block", value: "Médico" %>
+    <%= form.collection_select :medico_id, Medico.all, :id, :nome %>
   </div>
 
   <div>
