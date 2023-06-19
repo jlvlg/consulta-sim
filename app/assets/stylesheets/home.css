@@ -1,0 +1,10 @@
+#doctors {
+    background-image: url("doctors.jpg");
+    width: 100%;
+    height: auto;
+    position: absolute;
+    background-position: center;
+    background-size: cover;
+    top: 40px;
+    bottom: 0;
+}

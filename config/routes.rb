@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'home/index', controller: :home, action: :index
   resources :consultas
   resources :medicos
   resources :pacientes

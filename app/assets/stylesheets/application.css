@@ -13,3 +13,34 @@
  *= require_tree .
  *= require_self
  */
+
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+#main-header {
+    height: 30px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    background-color: #121212;
+    gap: 10px;
+}
+
+.header-link {
+    font-family: roboto, sans-serif;
+    font-weight: 700;
+    color: #ebdbb2;
+    text-decoration: none;
+    transition: color, .2s;
+    text-transform: uppercase;
+}
+
+.header-link:hover {
+    color: #ffefcc;
+}
+
+#consulta-link {
+    margin-left: auto;
+}
