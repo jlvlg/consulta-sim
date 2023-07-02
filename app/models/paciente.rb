@@ -1,6 +1,6 @@
 class Paciente < ApplicationRecord
   has_one :endereco, dependent: :destroy, inverse_of: :paciente
-  has_many :consultas
+  has_many :consultas, dependent: :destroy, inverse_of: :paciente
   has_many :medicos, through: :consultas
 
   validates :nome,

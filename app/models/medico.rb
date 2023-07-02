@@ -1,5 +1,5 @@
 class Medico < ApplicationRecord
-  has_many :consultas
+  has_many :consultas, dependent: :destroy, inverse_of: :paciente
   has_many :pacientes, through: :consultas
 
   validates :nome,

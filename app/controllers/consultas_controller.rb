@@ -28,8 +28,7 @@ class ConsultasController < ApplicationController
 
     respond_to do |format|
       if @consulta.save
-        format.html { redirect_to consulta_url(@consulta), notice: "Consulta was successfully created." }
-        format.json { render :show, status: :created, location: @consulta }
+        format.html { redirect_to root_path }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @consulta.errors, status: :unprocessable_entity }
@@ -42,8 +41,7 @@ class ConsultasController < ApplicationController
     @paciente = consulta_params[:paciente_id]
     respond_to do |format|
       if @consulta.update(consulta_params)
-        format.html { redirect_to consulta_url(@consulta), notice: "Consulta was successfully updated." }
-        format.json { render :show, status: :ok, location: @consulta }
+        format.html { redirect_to root_path }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @consulta.errors, status: :unprocessable_entity }

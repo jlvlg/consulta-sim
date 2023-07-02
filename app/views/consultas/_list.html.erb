@@ -1,0 +1,8 @@
+<div>
+  <h2>Consultas:</h2>
+  <% consultas.each do |consulta| %>
+    <p><%= consulta.data %></p>
+    <p><%= consulta.medico.nome %></p>
+    <%= link_to "Editar consulta", edit_consulta_path(consulta) %>
+  <% end %>
+</div>
