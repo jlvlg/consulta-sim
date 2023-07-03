@@ -1,7 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  cep: MyString
+  cep: 12345678
   cidade: MyString
   bairro: MyString
   logradouro: MyString
@@ -9,7 +9,7 @@ one:
   paciente: one
 
 two:
-  cep: MyString
+  cep: 12345678
   cidade: MyString
   bairro: MyString
   logradouro: MyString

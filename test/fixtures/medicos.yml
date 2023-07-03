@@ -1,15 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  nome: MyString
-  cpf: MyString
-  email: MyString
-  especialidade: MyString
-  crm: MyString
+  nome: abc
+  cpf: 12345678900
+  email: a@b.c
+  especialidade: ab
+  crm: 123456ab
 
 two:
-  nome: MyString
-  cpf: MyString
-  email: MyString
-  especialidade: MyString
-  crm: MyString
+  nome: abc
+  cpf: 00987654321
+  email: c@b.a
+  especialidade: ab
+  crm: 654321ba
